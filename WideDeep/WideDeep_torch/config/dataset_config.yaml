@@ -1,0 +1,70 @@
+### Tiny data for tests only
+tiny_h5:
+    data_root: ../../../data/
+    data_format: h5
+    train_data: ../../../data/tiny_h5/train.h5
+    valid_data: ../../../data/tiny_h5/valid.h5
+    test_data: ../../../data/tiny_h5/test.h5
+
+criteo_x4:
+    data_root: ../../../data/
+    data_format: csv
+    train_data: ../../../data/criteo_x4/train.csv
+    valid_data: ../../../data/criteo_x4/valid.csv
+    test_data: ../../../data/criteo_x4/test.csv
+    min_categr_count: 2
+    feature_cols:
+        - { name: [ I1,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,I13 ],
+            active: True, dtype: float, type: categorical, preprocess: convert_to_bucket, fill_na: 0 }
+        - { name: [ C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26 ],
+            active: True, dtype: str, type: categorical, fill_na: "" }
+    label_col: { name: Label, dtype: float }
+    spe_processor: criteo
+
+avazu_x4:
+    data_format: csv
+    data_root: ../../../data/
+    feature_cols:
+        - { active: false, dtype: str, name: id, type: categorical }
+        - { active: true, dtype: str, name: hour, preprocess: convert_hour, type: categorical }
+        - active: true
+          dtype: str
+          name: [ C1, banner_pos, site_id, site_domain, site_category, app_id, app_domain,
+                  app_category, device_id, device_ip, device_model, device_type, device_conn_type,
+                  C14, C15, C16, C17, C18, C19, C20, C21 ]
+          type: categorical
+        - { active: true, dtype: str, name: weekday, preprocess: convert_weekday, type: categorical }
+        - { active: true, dtype: str, name: weekend, preprocess: convert_weekend, type: categorical }
+    label_col: { dtype: float, name: click }
+    min_categr_count: 2
+    test_data: ../../../data/avazu_x4/test.csv
+    train_data: ../../../data/avazu_x4/train.csv
+    valid_data: ../../../data/avazu_x4/valid.csv
+    spe_processor: avazu
+
+ifly_chu:
+    data_root: ../../../data/
+    data_format: csv
+    train_data: ../../../data/ifly_chu/train.csv
+    valid_data: ../../../data/ifly_chu/valid.csv
+    test_data: ../../../data/ifly_chu/test.csv
+    min_categr_count: 10
+    feature_cols:
+        - { name: [ "f1","f2","f3","f4","f5" ], active: True, dtype: str, type: categorical }
+        - { name: [ 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14', 'f15', 'f16', 'f17', 'f18', 'f19', 'f20', 'f21', 'f22', 'f23', 'f24', 'f25', 'f26', 'f27', 'f28', 'f29', 'f30', 'f31', 'f32', 'f33', 'f34', 'f35', 'f36', 'f37', 'f38', 'f39', 'f40', 'f41', 'f42', 'f43', 'f44', 'f45', 'f46', 'f47', 'f48', 'f49', 'f50', 'f51', 'f52', 'f53', 'f54', 'f55', 'f56', 'f57', 'f58', 'f59', 'f60', 'f61', 'f62', 'f63', 'f64', 'f65', 'f66', 'f67', 'f68', 'f69', 'f70', 'f71', 'f72', 'f73', 'f74', 'f75', 'f76', 'f77', 'f78', 'f79', 'f80', 'f81', 'f82', 'f83', 'f84', 'f85', 'f86', 'f87', 'f88', 'f89', 'f90', 'f91', 'f92', 'f93', 'f94', 'f95', 'f96', 'f97', 'f98', 'f99', 'f100', 'f101', 'f102', 'f103', 'f104', 'f105', 'f106', 'f107', 'f108', 'f109', 'f110', 'f111', 'f112', 'f113', 'f114', 'f115', 'f116', 'f117', 'f118', 'f119', 'f120', 'f121', 'f122', 'f123', 'f124', 'f125', 'f126', 'f127', 'f128', 'f129', 'f130', 'f131', 'f132', 'f133', 'f134', 'f135', 'f136', 'f137', 'f138', 'f139', 'f140', 'f141', 'f142', 'f143', 'f144', 'f145', 'f146', 'f147', 'f148', 'f149', 'f150', 'f151', 'f152', 'f153', 'f154', 'f155', 'f156', 'f157', 'f158', 'f159', 'f160', 'f161', 'f162', 'f163', 'f164', 'f165', 'f166', 'f167', 'f168', 'f169', 'f170', 'f171', 'f172', 'f173', 'f174', 'f175', 'f176', 'f177', 'f178', 'f179', 'f180', 'f181', 'f182', 'f183', 'f184', 'f185', 'f186', 'f187', 'f188', 'f189', 'f190', 'f191', 'f192', 'f193', 'f194', 'f195', 'f196', 'f197', 'f198', 'f199', 'f200', 'f201', 'f202', 'f203', 'f204', 'f205', 'f206', 'f207', 'f208', 'f209', 'f210', 'f211', 'f212', 'f213', 'f214', 'f215', 'f216', 'f217', 'f218', 'f219', 'f220', 'f221', 'f222', 'f223', 'f224', 'f225', 'f226', 'f227', 'f228', 'f229', 'f230', 'f231', 'f232', 'f233', 'f234', 'f235', 'f236', 'f237', 'f238', 'f239', 'f240', 'f241', 'f242', 'f243', 'f244', 'f245' ],
+            active: True, dtype: float, type: numeric, "na_value": 0 }
+    label_col: { name: "label", dtype: float }
+
+
+ifly_fu:
+    data_root: ../../../data/
+    data_format: csv
+    train_data: ../../../data/ifly_fu/train.csv
+    valid_data: ../../../data/ifly_fu/valid.csv
+    test_data: ../../../data/ifly_fu/test.csv
+    min_categr_count: 10
+    feature_cols:
+        - { name: [ "f1","f2","f3","f4","f5" ], active: True, dtype: str, type: categorical }
+        - { name: [ 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14', 'f15', 'f16', 'f17', 'f18', 'f19', 'f20', 'f21', 'f22', 'f23', 'f24', 'f25', 'f26', 'f27', 'f28', 'f29', 'f30', 'f31', 'f32', 'f33', 'f34', 'f35', 'f36', 'f37', 'f38', 'f39', 'f40', 'f41', 'f42', 'f43', 'f44', 'f45', 'f46', 'f47', 'f48', 'f49', 'f50', 'f51', 'f52', 'f53', 'f54', 'f55', 'f56', 'f57', 'f58', 'f59', 'f60', 'f61', 'f62', 'f63', 'f64', 'f65', 'f66', 'f67', 'f68', 'f69', 'f70', 'f71', 'f72', 'f73', 'f74', 'f75', 'f76', 'f77', 'f78', 'f79', 'f80', 'f81', 'f82', 'f83', 'f84', 'f85', 'f86', 'f87', 'f88', 'f89', 'f90', 'f91', 'f92', 'f93', 'f94', 'f95', 'f96', 'f97', 'f98', 'f99', 'f100', 'f101', 'f102', 'f103', 'f104', 'f105', 'f106', 'f107', 'f108', 'f109', 'f110', 'f111', 'f112', 'f113', 'f114', 'f115', 'f116', 'f117', 'f118', 'f119', 'f120', 'f121', 'f122', 'f123', 'f124', 'f125', 'f126', 'f127', 'f128', 'f129', 'f130', 'f131', 'f132', 'f133', 'f134', 'f135', 'f136', 'f137', 'f138', 'f139', 'f140', 'f141', 'f142', 'f143', 'f144', 'f145', 'f146', 'f147', 'f148', 'f149', 'f150', 'f151', 'f152', 'f153', 'f154', 'f155', 'f156', 'f157', 'f158', 'f159', 'f160', 'f161', 'f162', 'f163', 'f164', 'f165', 'f166', 'f167', 'f168', 'f169', 'f170', 'f171', 'f172', 'f173', 'f174', 'f175', 'f176', 'f177', 'f178', 'f179', 'f180', 'f181', 'f182', 'f183', 'f184', 'f185', 'f186', 'f187', 'f188', 'f189', 'f190', 'f191', 'f192', 'f193', 'f194', 'f195', 'f196', 'f197', 'f198', 'f199', 'f200', 'f201', 'f202', 'f203', 'f204', 'f205', 'f206', 'f207', 'f208', 'f209', 'f210', 'f211', 'f212', 'f213', 'f214', 'f215', 'f216', 'f217', 'f218', 'f219', 'f220', 'f221', 'f222', 'f223', 'f224', 'f225', 'f226', 'f227', 'f228', 'f229', 'f230', 'f231', 'f232', 'f233', 'f234', 'f235', 'f236', 'f237', 'f238', 'f239', 'f240', 'f241', 'f242', 'f243', 'f244', 'f245' ],
+            active: True, dtype: float, type: numeric, "na_value": 0 }
+    label_col: { name: "label", dtype: float }
